@@ -98,7 +98,15 @@ class confluence::install {
     }
   }
 
-  file { [$confluence::homedir, "${confluence::homedir}/logs"]:
+  if (! $confluence::manage_user) and $confluence::manage_homedir {
+    file { $confluence::homedir:
+      ensure => 'directory',
+      group  => $confluence::group,
+      owner  => $confluence::user,
+    }
+  }
+
+  file { "${confluence::homedir}/logs":
     ensure => 'directory',
     group  => $confluence::group,
     owner  => $confluence::user,
