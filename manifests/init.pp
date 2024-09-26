@@ -25,6 +25,7 @@ class confluence (
   $uid                                                           = undef,
   $gid                                                           = undef,
   Boolean $manage_user                                           = true,
+  Boolean $manage_homedir                                        = true,
   $shell                                                         = '/bin/true',
   # Misc Settings
   $download_url                                                  = 'https://www.atlassian.com/software/confluence/downloads/binary',
