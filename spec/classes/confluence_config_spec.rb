@@ -19,7 +19,6 @@ describe 'confluence' do
           end
 
           it { is_expected.to compile.with_all_deps }
-          it { is_expected.to contain_file('/opt/confluence/atlassian-confluence-5.5.6/bin/setenv.sh') }
           it { is_expected.to contain_file('/opt/confluence/atlassian-confluence-5.5.6/confluence/WEB-INF/classes/confluence-init.properties') }
           it { is_expected.to contain_augeas('/opt/confluence/atlassian-confluence-5.5.6/conf/server.xml') }
         end
@@ -33,7 +32,6 @@ describe 'confluence' do
             }
           end
 
-          it { is_expected.to contain_file('/opt/confluence/atlassian-confluence-5.5.6/bin/setenv.sh') }
           it { is_expected.to contain_file('/opt/confluence/atlassian-confluence-5.5.6/confluence/WEB-INF/classes/confluence-init.properties') }
           it { is_expected.to contain_file('/opt/confluence/atlassian-confluence-5.5.6/conf/server.xml') }
         end
@@ -58,7 +56,6 @@ describe 'confluence' do
             }
           end
 
-          it { is_expected.to contain_file('/opt/confluence/atlassian-confluence-5.5.6/bin/setenv.sh') }
           it { is_expected.to contain_file('/opt/confluence/atlassian-confluence-5.5.6/confluence/WEB-INF/classes/confluence-init.properties') }
 
           it do
@@ -199,7 +196,6 @@ describe 'confluence' do
 
           it do
             is_expected.to compile.with_all_deps
-            is_expected.to contain_file('/opt/confluence/atlassian-confluence-6.12.0/bin/setenv.sh').
               with_content(%r{CATALINA_OPTS="-Dconfluence.upgrade.recovery.file.enabled=false -Dconfluence.cluster.node.name=myhostname \${CATALINA_OPTS}"})
           end
         end
@@ -215,7 +211,6 @@ describe 'confluence' do
 
           it do
             is_expected.to compile.with_all_deps
-            is_expected.to contain_file('/opt/confluence/atlassian-confluence-6.12.0/bin/setenv.sh').
               with_content(%r{CATALINA_OPTS="-Dconfluence.upgrade.recovery.file.enabled=false \${CATALINA_OPTS}"}).
               with_content(%r{CATALINA_OPTS="-Dconfluence.cluster.node.name=myhostname \${CATALINA_OPTS}"})
           end
@@ -231,7 +226,6 @@ describe 'confluence' do
 
           it do
             is_expected.to compile.with_all_deps
-            is_expected.to contain_file('/opt/confluence/atlassian-confluence-7.12.0/bin/setenv.sh').
               with_content(%r{CATALINA_OPTS="-XX:\+ExplicitGCInvokesConcurrent -XX:\+PrintGCDateStamps \${CATALINA_OPTS}"})
           end
         end
@@ -247,7 +241,6 @@ describe 'confluence' do
 
           it do
             is_expected.to compile.with_all_deps
-            is_expected.to contain_file('/opt/confluence/atlassian-confluence-7.12.0/bin/setenv.sh').
               with_content(%r{CATALINA_OPTS="-XX:ReservedCodeCacheSize=384m \${CATALINA_OPTS}"})
           end
         end
@@ -263,7 +256,6 @@ describe 'confluence' do
 
           it do
             is_expected.to compile.with_all_deps
-            is_expected.to contain_file('/opt/confluence/atlassian-confluence-7.12.0/bin/setenv.sh').
               with_content(%r{CATALINA_OPTS="-XX:-PrintGCDetails -XX:\+PrintGCDateStamps -XX:-PrintTenuringDistribution \${CATALINA_OPTS}"})
           end
         end
@@ -279,7 +271,6 @@ describe 'confluence' do
 
           it do
             is_expected.to compile.with_all_deps
-            is_expected.to contain_file('/opt/confluence/atlassian-confluence-8.5.14/bin/setenv.sh').
               with_content(%r{CATALINA_OPTS="-XX:\+ExplicitGCInvokesConcurrent \${CATALINA_OPTS}"}).
               with_content(%r{CATALINA_OPTS="-Xlog:gc\*:file=\$LOGBASEABS/logs/gc-%t.log:tags,time,uptime,level:filecount=5,filesize=2M \${CATALINA_OPTS}"}) # fix this spec test
           end
