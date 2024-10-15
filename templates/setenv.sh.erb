@@ -1,6 +1,6 @@
-### THIS FILE IS MANAGED BY PUPPET - ANY MANUAL CHANGES WILL BE LOST!
+#-----------------------------------------------------------------------------------
 # See the CATALINA_OPTS below for tuning the JVM arguments used to start Confluence
-# ---------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------
 
 echo "If you encounter issues starting up Confluence, please see the Installation guide at http://confluence.atlassian.com/display/DOC/Confluence+Installation+Guide"
 
@@ -71,7 +71,7 @@ echo "--------------------------------------------------------------------------
 #-----------------------------------------------------------------------------------
 
 # Set the Java heap size
-CATALINA_OPTS="-Xms<%= @jvm_xms %> -Xmx<%= @jvm_xmx %> ${CATALINA_OPTS}"
+CATALINA_OPTS="-Xms<%= scope['confluence::jvm_xms'] %> -Xmx<%= scope['confluence::jvm_xmx'] %> ${CATALINA_OPTS}"
 
 # Default values for small to medium size instances
 CATALINA_OPTS="-XX:ReservedCodeCacheSize=256m ${CATALINA_OPTS}"
