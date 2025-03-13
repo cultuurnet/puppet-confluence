@@ -12,7 +12,7 @@ define confluence::conf (
     incl    => $config_file,
     onlyif  => [
       "get /files${config_file}/confluence-configuration/setupStep/#text == 'complete'",
-      "match /files${config_file}/confluence-configuration/properties/property[#attribute/name = \"${key}\"]/#text != '{ATL_SECURED}'"
+      "get /files${config_file}/confluence-configuration/properties/property[#attribute/name = \"${key}\"]/#text != '{ATL_SECURED}'"
     ],
     changes => [
       $aug_path,
