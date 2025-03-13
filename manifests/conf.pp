@@ -11,7 +11,7 @@ define confluence::conf (
     lens    => 'Xml.lns',
     incl    => $config_file,
     onlyif  => [
-      "get /files${config_file}/confluence-configuration/setupStep/#text == 'complete'",
+      # "get /files${config_file}/confluence-configuration/setupStep/#text == 'complete'",
       "get /files${config_file}/confluence-configuration/properties/property[#attribute/name = \"${key}\"]/#text != '{ATL_SECURED}'"
     ],
     changes => [
